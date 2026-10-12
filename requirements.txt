@@ -1,0 +1,9 @@
+# IFT599/IFT799 - TP1 : Comprehension et visualisation des donnees
+# Python 3.14
+numpy==2.4.1
+pandas==2.3.3
+scipy==1.17.0
+scikit-learn==1.8.0
+matplotlib==3.10.8
+seaborn==0.13.2
+jupyterlab==4.5.6
