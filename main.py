@@ -1,19 +1,29 @@
+from src.preprocessing import X, y
+from src.distances import calculer_overlaps
+from src.selection_genes import selectionner_genes
 
-import pandas as pd
 
-data = pd.read_csv("data/data.csv")
-labels = pd.read_csv("data/labels.csv")
+euclidien = calculer_overlaps(X, y, "euclidienne")
+euclidien.to_csv("results/tables/overlap_euclidien.csv", index=False)
 
-print(data.shape)
-print(labels.shape)
+print("Distances euclidiennes :")
+print(euclidien)
 
-print(data.head())
-print(labels.head())
+mahalanobis = calculer_overlaps(X, y, "mahalanobis")
+mahalanobis.to_csv("results/tables/overlap_mahalanobis.csv", index=False)
 
-print(data.columns[:10])
-print(labels.columns)
+print("\nDistances de Mahalanobis :")
+print(mahalanobis)
 
-print(data.isnull().sum().sum())
-print(labels.isnull().sum().sum())
+print("\nRecherche des meilleures paires de genes...")
 
-print(labels["Class"].value_counts())
+globales, paires = selectionner_genes(X, y)
+
+globales.to_csv("results/tables/meilleurs_genes_global.csv", index=False)
+paires.to_csv("results/tables/meilleurs_genes_par_classe.csv", index=False)
+
+print("\nMeilleures paires globales :")
+print(globales.head(10))
+
+print("\nMeilleures paires pour chaque combinaison de cancers :")
+print(paires)
