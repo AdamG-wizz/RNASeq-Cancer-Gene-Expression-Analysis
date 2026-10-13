@@ -1,0 +1,10 @@
+# TP1 - Comprehension et visualisation des donnees
+# Membres (IFT799-52) :
+#   Hidaya LAKHDER - lakh5345
+#   Adam GUERROUANI - guea2637
+#
+# Python 3.14
+numpy==2.4.1
+pandas==2.3.3
+scikit-learn==1.8.0
+matplotlib==3.10.8
